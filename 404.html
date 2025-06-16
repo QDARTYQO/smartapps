@@ -2,67 +2,196 @@
 <html lang="he" dir="rtl">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>404 - הדף לא נמצא</title>
+  <link rel="icon" type="image/x-icon" href="icons/myicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      background: #f4f4f4;
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      direction: rtl;
+      font-family: 'Rubik', Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #2c5364 80%);
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 5vw;
+      background: rgba(20, 30, 48, 0.85);
+      box-shadow: 0 4px 24px 0 rgba(0,0,0,0.12);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      animation: fadeInDown 1s;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff 70%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: logoGlow 2s infinite alternate;
+    }
+    @keyframes logoGlow {
+      from { text-shadow: 0 0 8px #00c6ff44;}
+      to { text-shadow: 0 0 24px #00c6ffcc;}
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1.2rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 0;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      transition: width 0.3s;
+      position: absolute;
+      right: 0; bottom: -4px;
+    }
+    nav a:hover {
+      color: #00c6ff;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.18;
+      z-index: 0;
+      animation: float 8s infinite alternate;
+    }
+    .shape1 { width: 180px; height: 180px; background: #00c6ff; top: 10%; left: 5%; animation-delay: 0s;}
+    .shape2 { width: 120px; height: 120px; background: #0072ff; bottom: 15%; right: 8%; animation-delay: 2s;}
+    .shape3 { width: 90px; height: 90px; background: #fff; top: 60%; left: 80%; animation-delay: 4s;}
+    @keyframes float {
+      0% { transform: translateY(0);}
+      100% { transform: translateY(-40px);}
+    }
+    .error-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 70vh;
       text-align: center;
+      position: relative;
+      z-index: 1;
     }
     .gadget-card {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      display: inline-block;
-      margin: 60px auto;
-      padding: 40px 32px;
-      max-width: 350px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 24px;
+      box-shadow: 0 4px 24px 0 #00c6ff22;
+      padding: 2.5rem 2rem;
+      width: 340px;
+      text-align: center;
+      margin: 0 auto;
+      animation: gadgetAppear 1s;
     }
-    .gadget-icon img {
-      width: 64px;
-      height: 64px;
-      margin-bottom: 16px;
+    @keyframes gadgetAppear {
+      from { opacity: 0; transform: scale(0.9);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    .gadget-icon {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      animation: spin 2s linear infinite;
+    }
+    @keyframes spin {
+      0% { transform: rotateY(0);}
+      100% { transform: rotateY(360deg);}
     }
     .gadget-title {
-      font-size: 2em;
-      color: #e74c3c;
-      margin-bottom: 12px;
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #00c6ff;
     }
     .gadget-desc {
-      color: #555;
-      margin-bottom: 24px;
+      color: #e0e0e0;
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
     }
-    .download-btn {
-      background: #3498db;
-      color: #fff;
+    .cta-btn {
+      padding: 1rem 2.5rem;
+      font-size: 1.2rem;
       border: none;
-      border-radius: 8px;
-      padding: 12px 32px;
-      font-size: 1em;
+      border-radius: 32px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: #fff;
+      font-weight: bold;
       cursor: pointer;
+      box-shadow: 0 4px 24px 0 #00c6ff44;
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: pulse 2s infinite;
       text-decoration: none;
-      transition: background 0.2s;
       display: inline-block;
     }
-    .download-btn:hover {
-      background: #217dbb;
+    .cta-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 32px 0 #00c6ff88;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 16px #00c6ff44;}
+      50% { box-shadow: 0 0 32px #00c6ffcc;}
+      100% { box-shadow: 0 0 16px #00c6ff44;}
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 0 1rem 0;
+      color: #b0b0b0;
+      font-size: 1rem;
+      background: none;
+      z-index: 2;
+      position: relative;
+    }
+    @media (max-width: 700px) {
+      .gadget-card { width: 90vw;}
+      header { flex-direction: column; gap: 1rem;}
+      .gadget-title { font-size: 1.3rem;}
     }
   </style>
 </head>
 <body>
-  <div class="gadget-card">
-    <div class="gadget-icon">
-      <img src="icons/icon.ico" alt="אייקון האתר">
+  <div class="shape shape1"></div>
+  <div class="shape shape2"></div>
+  <div class="shape shape3"></div>
+  <header>
+    <div class="logo">smartapps</div>
+    <nav>
+      <a href="index.html">בית</a>
+      <a href="about.html">אודות</a>
+      <a href="blog.html">בלוג</a>
+      <a href="contact.html">צור קשר</a>
+    </nav>
+  </header>
+  <section class="error-section">
+    <div class="gadget-card">
+      <div class="gadget-title">404 - הדף לא נמצא</div>
+      <div class="gadget-desc">
+        הדף שחיפשת לא קיים.<br>
+        ייתכן שהקישור שגוי או שהדף הוסר.<br>
+        <span style="font-size:2.5rem;">😕</span>
+      </div>
+      <a href="index.html" class="cta-btn">חזרה לדף הבית</a>
     </div>
-    <div class="gadget-title">404 - הדף לא נמצא</div>
-    <div class="gadget-desc">
-      הדף שחיפשת לא קיים.<br>
-      ייתכן שהקישור שגוי או שהדף הוסר.
-    </div>
-    <a href="index.html" class="download-btn">חזרה לדף הבית</a>
-  </div>
+  </section>
+  <footer>
+    &copy; 2025 smartapps. כל הזכויות שמורות.
+  </footer>
 </body>
 </html>
