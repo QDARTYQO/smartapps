@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>הרשמה לפרימיום - SmartApps</title>
+  <link rel="icon" type="image/x-icon" href="icons/myicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Rubik', Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #2c5364 80%);
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 5vw;
+      background: rgba(20, 30, 48, 0.85);
+      box-shadow: 0 4px 24px 0 rgba(0,0,0,0.12);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      animation: fadeInDown 1s;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff 70%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: logoGlow 2s infinite alternate;
+    }
+    @keyframes logoGlow {
+      from { text-shadow: 0 0 8px #00c6ff44;}
+      to { text-shadow: 0 0 24px #00c6ffcc;}
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1.2rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 0;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      transition: width 0.3s;
+      position: absolute;
+      right: 0; bottom: -4px;
+    }
+    nav a:hover {
+      color: #00c6ff;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.18;
+      z-index: 0;
+      animation: float 8s infinite alternate;
+    }
+    .shape1 { width: 180px; height: 180px; background: #00c6ff; top: 10%; left: 5%; animation-delay: 0s;}
+    .shape2 { width: 120px; height: 120px; background: #0072ff; bottom: 15%; right: 8%; animation-delay: 2s;}
+    .shape3 { width: 90px; height: 90px; background: #fff; top: 60%; left: 80%; animation-delay: 4s;}
+    @keyframes float {
+      0% { transform: translateY(0);}
+      100% { transform: translateY(-40px);}
+    }
+    .premium-section {
+      max-width: 500px;
+      margin: 3rem auto;
+      background: rgba(255,255,255,0.08);
+      border-radius: 24px;
+      padding: 2.5rem 2rem 2rem 2rem;
+      box-shadow: 0 4px 24px 0 #00c6ff22;
+      text-align: center;
+      z-index: 1;
+      position: relative;
+      animation: gadgetAppear 1s;
+    }
+    .premium-section h1 {
+      color: #00c6ff;
+      margin-bottom: 1rem;
+      font-size: 2.2rem;
+    }
+    .premium-section p {
+      color: #e0e0e0;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .premium-price {
+      font-size: 2rem;
+      color: #00ffae;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      margin-top: 0.5rem;
+    }
+    .premium-features {
+      text-align: right;
+      margin: 1.5rem 0 2rem 0;
+      color: #e0e0e0;
+      font-size: 1.1rem;
+      line-height: 2;
+      padding-right: 0;
+      list-style: none;
+    }
+    .premium-features li::before {
+      content: "★";
+      color: #00c6ff;
+      margin-left: 0.5em;
+    }
+    .premium-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      margin-top: 1rem;
+      align-items: stretch;
+    }
+    .premium-form label {
+      font-weight: bold;
+      color: #00c6ff;
+      text-align: right;
+      margin-bottom: 0.2rem;
+    }
+    .premium-form input, .premium-form select {
+      border: none;
+      border-radius: 12px;
+      padding: 0.8rem;
+      font-size: 1rem;
+      background: #f5f5f5;
+      color: #222;
+      margin-bottom: 0.5rem;
+      transition: box-shadow 0.2s;
+    }
+    .premium-form input:focus, .premium-form select:focus {
+      outline: none;
+      box-shadow: 0 0 8px #00c6ff88;
+    }
+    .payment-methods {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-bottom: 1rem;
+      margin-top: 0.5rem;
+    }
+    .payment-methods label {
+      color: #fff;
+      font-weight: normal;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+    }
+    .credit-fields, .paypal-fields {
+      display: none;
+      flex-direction: column;
+      gap: 0.7rem;
+      margin-bottom: 0.5rem;
+    }
+    .premium-form input[type="radio"] {
+      accent-color: #00c6ff;
+    }
+    .premium-form button {
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: #fff;
+      border: none;
+      border-radius: 32px;
+      padding: 1rem;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 4px 24px 0 #00c6ff44;
+      margin-top: 0.5rem;
+      animation: pulse 2s infinite;
+    }
+    .premium-form button:hover {
+      transform: scale(1.04);
+      box-shadow: 0 8px 32px 0 #00c6ff88;
+    }
+    @keyframes gadgetAppear {
+      from { opacity: 0; transform: scale(0.9);}
+      to { opacity: 1; transform: scale(1);}
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 16px #00c6ff44;}
+      50% { box-shadow: 0 0 32px #00c6ffcc;}
+      100% { box-shadow: 0 0 16px #00c6ff44;}
+    }
+    .success-message {
+      color: #00ffae;
+      font-weight: bold;
+      margin-top: 1rem;
+      display: none;
+      animation: fadeInUp 1s;
+    }
+    @media (max-width: 700px) {
+      header { flex-direction: column; gap: 1rem;}
+      .premium-section { padding: 1.5rem 0.5rem; }
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 0 1rem 0;
+      color: #b0b0b0;
+      font-size: 1rem;
+      background: none;
+      z-index: 2;
+      position: relative;
+    }
+  </style>
+  <script>
+    function showPaymentFields() {
+      const credit = document.getElementById('pay-credit');
+      const paypal = document.getElementById('pay-paypal');
+      document.querySelector('.credit-fields').style.display = credit.checked ? 'flex' : 'none';
+      document.querySelector('.paypal-fields').style.display = paypal.checked ? 'flex' : 'none';
+    }
+    window.onload = function() {
+      showPaymentFields();
+      document.getElementById('pay-credit').addEventListener('change', showPaymentFields);
+      document.getElementById('pay-paypal').addEventListener('change', showPaymentFields);
+    }
+  </script>
+</head>
+<body>
+  <div class="shape shape1"></div>
+  <div class="shape shape2"></div>
+  <div class="shape shape3"></div>
+  <header>
+    <div class="logo">smartapps</div>
+    <nav>
+      <a href="index.html">בית</a>
+      <a href="about.html">אודות</a>
+      <a href="blog.html">בלוג</a>
+      <a href="contact.html">צור קשר</a>
+      <a href="premium.html" style="color:#00c6ff;font-weight:bold;">פרימיום</a>
+    </nav>
+  </header>
+  <section class="premium-section">
+    <h1>הצטרפות למנוי פרימיום</h1>
+    <div class="premium-price">$999 לחודש בלבד</div>
+    <p>
+      קבל גישה לכל התוכנות והפיצ'רים המתקדמים של smartapps<br>
+      תמיכה אישית, עדכונים אוטומטיים, תוספות בלעדיות ועוד!
+    </p>
+    <ul class="premium-features">
+      <li>גישה מלאה לכל התוכנות</li>
+      <li>עדכונים ושדרוגים חינם</li>
+      <li>תמיכה טכנית מהירה</li>
+      <li>פיצ'רים בלעדיים למנויים</li>
+      <li>הנחות על שירותים נוספים</li>
+    </ul>
+    <form class="premium-form" onsubmit="event.preventDefault(); document.getElementById('success').style.display='block';">
+      <label for="name">שם מלא</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">אימייל</label>
+      <input type="email" id="email" name="email" required>
+      <label for="password">סיסמה</label>
+      <input type="password" id="password" name="password" required>
+      <div class="payment-methods">
+        <label>
+          <input type="radio" name="payment" id="pay-credit" value="credit" checked>
+          כרטיס אשראי
+        </label>
+        <label>
+          <input type="radio" name="payment" id="pay-paypal" value="paypal">
+          PayPal
+        </label>
+      </div>
+      <div class="credit-fields">
+        <label for="cc-number">מספר כרטיס</label>
+        <input type="text" id="cc-number" name="cc-number" maxlength="19" pattern="\d{16,19}">
+        <label for="cc-exp">תוקף</label>
+        <input type="text" id="cc-exp" name="cc-exp" placeholder="MM/YY" maxlength="5" pattern="\d{2}/\d{2}">
+        <label for="cc-cvc">CVC</label>
+        <input type="text" id="cc-cvc" name="cc-cvc" maxlength="4" pattern="\d{3,4}">
+      </div>
+      <div class="paypal-fields">
+        <label for="paypal-email">אימייל PayPal</label>
+        <input type="email" id="paypal-email" name="paypal-email">
+      </div>
+      <button type="submit">הרשם עכשיו</button>
+      <div id="success" class="success-message">נרשמת בהצלחה! ברוך הבא לפרימיום 🎉</div>
+    </form>
+  </section>
+  <footer>
+    &copy; 2025 smartapps. כל הזכויות שמורות.
+  </footer>
+</body>
+</html>

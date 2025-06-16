@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SmartApps - תוכנות נוספות</title>
+  <link rel="icon" type="image/x-icon" href="icons/myicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Rubik', Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #2c5364 80%);
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 5vw;
+      background: rgba(20, 30, 48, 0.85);
+      box-shadow: 0 4px 24px 0 rgba(0,0,0,0.12);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      animation: fadeInDown 1s;
+    }
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff 70%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: logoGlow 2s infinite alternate;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1.2rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 0;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      transition: width 0.3s;
+      position: absolute;
+      right: 0; bottom: -4px;
+    }
+    nav a:hover {
+      color: #00c6ff;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .gadgets-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin: 4rem 0 2rem 0;
+      z-index: 1;
+      position: relative;
+    }
+    .gadget-card {
+      background: rgba(255,255,255,0.06);
+      border-radius: 24px;
+      box-shadow: 0 4px 24px 0 #00c6ff22;
+      padding: 2rem 1.5rem 1.5rem 1.5rem;
+      width: 320px;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      animation: gadgetAppear 1s;
+    }
+    .gadget-card:hover {
+      transform: translateY(-12px) scale(1.04) rotate(-1deg);
+      box-shadow: 0 12px 48px 0 #00c6ff55;
+    }
+    .gadget-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      animation: spin 2s linear infinite;
+    }
+    .gadget-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+      color: #00c6ff;
+    }
+    .gadget-desc {
+      color: #e0e0e0;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .download-btn {
+      padding: 0.6rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 24px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 2px 12px 0 #00c6ff44;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .download-btn:hover {
+      transform: scale(1.07);
+      box-shadow: 0 6px 24px 0 #00c6ff88;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 0 1rem 0;
+      color: #b0b0b0;
+      font-size: 1rem;
+      background: none;
+      z-index: 2;
+      position: relative;
+    }
+    @media (max-width: 700px) {
+      .gadgets-section { flex-direction: column; gap: 1.5rem;}
+      .gadget-card { width: 90vw;}
+      header { flex-direction: column; gap: 1rem;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">smartapps</div>
+    <nav>
+      <a href="index.html">בית</a>
+      <a href="about.html">אודות</a>
+      <a href="blog.html">בלוג</a>
+      <a href="contact.html">צור קשר</a>
+    </nav>
+  </header>
+  <section class="gadgets-section">
+    <!--תוכנות -->
+<div class="gadget-card">
+  <div class="gadget-icon">
+    <img src="icons/icon.ico" alt="אייקון" style="width:64px;height:64px;">
+  </div>
+  <div class="gadget-title">Timed screenshot</div>
+  <div class="gadget-desc">צילום מסך מתוזמן.</div>
+  <a class="download-btn" href="download/Easy-download-YouTube.exe" download>הורדה</a>
+</div>
+    <div class="gadget-card">
+      <div class="gadget-icon"><img src="icons/search.ico" alt="אייקון" style="width:64px;height:64px;"></div>
+      <div class="gadget-title">Timed screenshot</div>
+      <div class="gadget-desc">צילום מסך מתוזמן.</div>
+      <button class="download-btn">הורדה</button>
+    </div>
+    <div class="gadget-card">
+      <div class="gadget-icon"><img src="icons/group.ico" alt="אייקון" style="width:64px;height:64px;"></div>
+      <div class="gadget-title">Timed screenshot</div>
+      <div class="gadget-desc">צילום מסך מתוזמן.</div>
+      <button class="download-btn">הורדה</button>
+    </div>
+    <div class="gadget-card">
+      <div class="gadget-icon"><img src="icons/myicon.ico" alt="אייקון" style="width:64px;height:64px;"></div>
+      <div class="gadget-title">Timed screenshot</div>
+      <div class="gadget-desc">צילום מסך מתוזמן.</div>
+      <button class="download-btn">הורדה</button>
+    </div>
+    <div class="gadget-card">
+      <div class="gadget-icon"><img src="icons/icon.ico" alt="אייקון" style="width:64px;height:64px;"></div>
+      <div class="gadget-title">Timed screenshot</div>
+      <div class="gadget-desc">צילום מסך מתוזמן.</div>
+      <button class="download-btn">הורדה</button>
+    </div>
+    <div class="gadget-card">
+      <div class="gadget-icon"><img src="icons/search.ico" alt="אייקון" style="width:64px;height:64px;"></div>
+      <div class="gadget-title">Timed screenshot</div>
+      <div class="gadget-desc">צילום מסך מתוזמן.</div>
+      <button class="download-btn">הורדה</button>
+    </div>
+    <div class="gadget-card">
+      <div class="gadget-icon"><img src="icons/group.ico" alt="אייקון" style="width:64px;height:64px;"></div>
+      <div class="gadget-title">Timed screenshot</div>
+      <div class="gadget-desc">צילום מסך מתוזמן.</div>
+      <button class="download-btn">הורדה</button>
+    </div>
+    <div class="gadget-card">
+      <div class="gadget-icon"><img src="icons/myicon.ico" alt="אייקון" style="width:64px;height:64px;"></div>
+      <div class="gadget-title">Timed screenshot</div>
+      <div class="gadget-desc">צילום מסך מתוזמן.</div>
+      <button class="download-btn">הורדה</button>
+    </div>
+    <div class="gadget-card">
+      <div class="gadget-icon"><img src="icons/icon.ico" alt="אייקון" style="width:64px;height:64px;"></div>
+      <div class="gadget-title">Timed screenshot</div>
+      <div class="gadget-desc">צילום מסך מתוזמן.</div>
+      <button class="download-btn">הורדה</button>
+    </div>
+    <div class="gadget-card">
+      <div class="gadget-icon"><img src="icons/search.ico" alt="אייקון" style="width:64px;height:64px;"></div>
+      <div class="gadget-title">Timed screenshot</div>
+      <div class="gadget-desc">צילום מסך מתוזמן.</div>
+      <button class="download-btn">הורדה</button>
+    </div>
+    <div class="gadget-card">
+      <div class="gadget-icon"><img src="icons/group.ico" alt="אייקון" style="width:64px;height:64px;"></div>
+      <div class="gadget-title">Timed screenshot</div>
+      <div class="gadget-desc">צילום מסך מתוזמן.</div>
+      <button class="download-btn">הורדה</button>
+    </div>
+    <div class="gadget-card">
+      <div class="gadget-icon"><img src="icons/myicon.ico" alt="אייקון" style="width:64px;height:64px;"></div>
+      <div class="gadget-title">Timed screenshot</div>
+      <div class="gadget-desc">צילום מסך מתוזמן.</div>
+      <button class="download-btn">הורדה</button>
+    </div>
+  </section>
+  <footer>
+    &copy; 2025 smartapps. כל הזכויות שמורות.
+  </footer>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SmartApps - בלוג </title>
+  <link rel="icon" type="image/x-icon" href="icons/myicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Rubik', Arial, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #2c5364 80%);
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem 5vw;
+      background: rgba(20, 30, 48, 0.85);
+      box-shadow: 0 4px 24px 0 rgba(0,0,0,0.12);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      animation: fadeInDown 1s;
+    }
+    .logo {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff 70%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: logoGlow 2s infinite alternate;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 1.2rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      display: block;
+      height: 2px;
+      width: 0;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
+      transition: width 0.3s;
+      position: absolute;
+      right: 0; bottom: -4px;
+    }
+    nav a:hover {
+      color: #00c6ff;
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .blog-section {
+      max-width: 800px;
+      margin: 3rem auto 2rem auto;
+      background: rgba(255,255,255,0.06);
+      border-radius: 24px;
+      box-shadow: 0 4px 24px 0 #00c6ff22;
+      padding: 2rem 2rem 1rem 2rem;
+    }
+    .blog-title {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #00c6ff;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .blog-post {
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid #00c6ff33;
+      padding-bottom: 1.5rem;
+    }
+    .blog-post:last-child {
+      border-bottom: none;
+    }
+    .blog-post h2 {
+      font-size: 1.3rem;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .blog-post .date {
+      color: #b0b0b0;
+      font-size: 0.9rem;
+      margin-bottom: 0.7rem;
+      display: block;
+    }
+    .blog-post p {
+      color: #e0e0e0;
+      font-size: 1.1rem;
+      margin: 0;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 0 1rem 0;
+      color: #b0b0b0;
+      font-size: 1rem;
+      background: none;
+      z-index: 2;
+      position: relative;
+    }
+    @media (max-width: 700px) {
+      .blog-section { padding: 1rem 0.5rem;}
+      header { flex-direction: column; gap: 1rem;}
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    @keyframes logoGlow {
+      from { text-shadow: 0 0 8px #00c6ff44;}
+      to { text-shadow: 0 0 24px #00c6ffcc;}
+    }
+  </style>
+</head>
+<body>
+  <div class="shape shape1"></div>
+  <div class="shape shape2"></div>
+  <div class="shape shape3"></div>
+  <header>
+    <div class="logo">smartapps</div>
+    <nav>
+      <a href="index.html">בית</a>
+      <a href="about.html">אודות</a>
+      <a href="blog.html">בלוג</a>
+      <a href="contact.html">צור קשר</a>
+    </nav>
+  </header>
+  <section class="blog-section">
+    <div class="blog-title">בלוג חדשות ועדכונים</div>
+    <div class="blog-post">
+      <h2>השקת האתר החדש!</h2>
+      <span class="date">16 ביוני 2025</span>
+      <p>אנחנו שמחים להשיק את האתר החדש של smartapps! כאן תמצאו את כל התוכנות, עדכונים, טיפים וחדשות חמות.</p>
+    </div>
+    <div class="blog-post">
+      <h2>עדכון: נוספה תוכנה חדשה להורדת סרטונים<h2>
+      <span class="date">15 ביוני 2025</span>
+      <p>הוספנו את Easy download YouTube - הדרך הקלה להוריד סרטונים מיוטיוב. נסו אותה עכשיו!</p>
+    </div>
+    <div class="blog-post">
+      <h1 style="color:Tomato;">עדכון חשוב!</h1>
+      <span class="date">15 ביוני 2025</span>
+      <p>אנחנו שמחים לבשר על הצטרפותו של דב בער לאוהדי החברה! <br>החברה מקווה כי בעקבות כך יגדלו המכירות בחודש הקרוב.</p>
+    </div>
+    <div class="blog-post">
+      <h2>השקת האתר החדש!</h2>
+      <span class="date">16 ביוני 2025</span>
+      <p>אנחנו שמחים להשיק את האתר החדש של smartapps! כאן תמצאו את כל התוכנות, עדכונים, טיפים וחדשות חמות.</p>
+    </div>
+    <div class="blog-post">
+      <h2>עדכון: נוספה תוכנה חדשה להורדת סרטונים<h2>
+      <span class="date">15 ביוני 2025</span>
+      <p>הוספנו את Easy download YouTube - הדרך הקלה להוריד סרטונים מיוטיוב. נסו אותה עכשיו!</p>
+    </div>
+    <div class="blog-post">
+      <h2>עדכון: דב בער הצטרף לרשימת האוהדים!</h2>
+      <span class="date">15 ביוני 2025</span>
+      <p>אנחנו שמחים לבשר על הצטרפותו של דב בער לאוהדי החברה! <br>החברה מקווה כי בעקבות כך יגדלו המכירות בחודש הקרוב.</p>
+    </div>
+    <!-- ניתן להוסיף פוסטים נוספים כאן -->
+  </section>
+  <footer>
+    &copy; 2025 smartapps. כל הזכויות שמורות.
+  </footer>
+</body>
+</html>
