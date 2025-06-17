@@ -1,4 +1,6 @@
 # SmartApps
+![‏‏לכידה](https://github.com/user-attachments/assets/b9d19555-b19f-4466-85e0-b596ff6a4b64)
+
 
 ברוכים הבאים לפרויקט **SmartApps** – אוסף אפליקציות חכמות לשימוש יומיומי, מבית [qdartyqo](https://github.com/qdartyqo).
 
